@@ -1,60 +1,166 @@
-Evolved Sleeper
-Unearth
-Magma Opus
-Lion Sash
-Escape to the Wilds
-Bramble Sovereign
-Serra's Emissary
-White Plume Adventurer
-Mishra's Factory
-Baleful Mastery
-Caves of Chaos Adventurer
-Ogre-Head Helm
-Battle Angels of Tyr
-Halana and Alena, Partners
-March of Otherworldly Light
-Tenacious Underdog
-Tamiyo, Compleated Sage
-Explore
-Den of the Bugbear
-Rabbit Battery
-The Celestus
-Soulherder
-Territorial Kavu
-Titan of Industry
-The Meathook Massacre
-Archon of Cruelty
-Outland Liberator
-Esika's Chariot
-Ob Nixilis, the Adversary
-Intrepid Adversary
-Luminarch Aspirant
-Fateful Absence
-Reveillark
-Archon of Emeria
-Anax, Hardened in the Forge
-Abundant Harvest
-Consider
-Shark Typhoon
-Cathartic Pyre
-Laelia, the Blade Reforged
-Bloodthirsty Adversary
-Augur of Autumn
-Hullbreaker Horror
-Jetmir's Garden
-Raffine's Tower
-Spara's Headquarters
-Xander's Lounge
-Ziatora's Proving Ground
-Displacer Kitten
-Ledger Shredder
-Suspicious Stowaway
-Lier, Disciple of the Drowned
-Adeline, Resplendent Cathar
-Memory Deluge
-Extraction Specialist
-Brutal Cathar
-The Wandering Emperor
-Fable of the Mirror-Breaker
-Boseiju, Who Endures
-Unlicensed Hearse
+Weathered Wayfarer
+Cathar Commando
+Loran of the Third Path
+Boon-Bringer Valkyrie
+Oust
+Spectral Procession
+Glimmer Lens
+Touch the Spirit Realm
+Leyline Binding
+Faerie Mastermind
+Chrome Host Seedshark
+Svyelun of Sea and Sky
+Murktide Regent
+Brain Freeze
+Miscalculation
+Snap
+Paradoxical Outcome
+Hard Evidence
+Mind's Desire
+Echo of Eons
+Flash
+Seal of Removal
+Putrid Imp
+Concealing Curtains
+Misery's Shadow
+Gix, Yawgmoth Praetor
+Graveyard Trespasser
+Yawgmoth, Thran Physician
+Custodi Lich
+Phyrexian Fleshgorger
+Cabal Ritual
+Infernal Grasp
+Imperial Seal
+Yawgmoth's Will
+Tendrils of Agony
+Call of the Ring
+Dire Fleet Daredevil
+Scrapwork Mutt
+Robber of the Rich
+Kari Zev, Skyship Raider
+Squee, Dubious Monarch
+Desperate Ritual
+Pyretic Ritual
+Seething Song
+Mine Collapse
+Arc Territorial
+Nahiri's Warcrafting
+Kumano Faces Kakkazan
+Bitter Reunion
+Underworld Breach
+Mana Flare
+Sylvan Safekeeper
+Elvish Reclaimer
+Deeproot Wayfinder
+Endurance
+Ulvenwald Oddity
+Questing Beast
+Thrun, Breaker of Silence
+Workshop Warchief
+Titania, Protector of Argoth
+Kogla, the Titan Ape
+Hornet Queen
+Worldspine Wurm
+Wrenn and Realmbreaker
+Nissa, Ascended Animist
+Crop Rotation
+Force of Vigor
+Utopia Sprawl
+Invasion of Ikoria
+Urza, Lord Protector
+Ertai Resurrected
+Talisman of Indulgence
+Bloodtithe Harvester
+Talisman of Unity
+Kitchen Finks
+Sigarda, Font of Blessings
+Tear Asunder
+Vraska, Golgari Queen
+Talisman of Conviction
+Zirda, the Dawnwaker
+Sail into the West
+Cruel Ultimatum
+Inspired Ultimatum
+Kenrith, the Returned King
+Lion's Eye Diamond
+Mox Opal
+Zuran Orb
+Lotus Petal
+Mishra's Bauble
+Retrofitter Foundry
+Candelabra of Tawnos
+Agatha's Soul Cauldron
+Lightning Greaves
+Helm of Awakening
+Andúril, Flame of the West
+Mirage Mirror
+Palantír of Orthanc
+Mystic Forge
+The One Ring
+Aetherflux Reservoir
+Seachrome Coast
+Darkslick Shores
+Blackcleave Cliffs
+Graven Cairns
+Copperline Gorge
+Razorverge Thicket
+Horizon Canopy
+Concealed Courtyard
+Silent Clearing
+Spirebluff Canal
+Fiery Islet
+Blooming Marsh
+Nurturing Peatland
+Inspiring Vantage
+Sunbaked Canyon
+Botanical Sanctum
+Waterlogged Grove
+City of Traitors
+Otawara, Soaring City
+Urborg, Tomb of Yawgmoth
+Subtlety
+Serra Paragon
+Guardian Scalelord
+Steel Seraph
+Reprieve
+Sevinne's Reclamation
+High Tide
+Thirst for Discovery
+Lórien Revealed
+Dream Halls
+Orcish Bowmasters
+Jadar, Ghoulcaller of Nephalia
+Sheoldred, the Apocalypse
+Troll of Khazad-dûm
+Sheoldred's Edict
+Snuff Out
+Oliphaunt
+Mizzix's Mastery
+Delighted Halfling
+Exploration
+Talisman of Progress
+Urza, Lord High Artificer
+Talisman of Dominance
+Rona, Herald of Invasion
+Fire Covenant
+Orcish Lumberjack
+Talisman of Impulse
+Minsc & Boo, Timeless Heroes
+Etali, Primal Conqueror
+Kogla and Yidaro
+Talisman of Unity
+Talisman of Hierarchy
+Third Path Iconoclast
+Talisman of Creativity
+Saheeli, Sublime Artificer
+Talisman of Resilience
+Forth Eorlingas!
+Otharri, Suns' Glory
+Talisman of Curiosity
+Kinnan, Bonder Prodigy
+Tamiyo, Collector of Tales
+Atraxa, Grand Unifier
+Triplicate Titan
+The Mightstone and Weakstone
+Portal to Phyrexia
+Kaldra Compleat
