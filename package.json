@@ -1,9 +1,9 @@
 {
-  "name": "downlaodImages",
+  "name": "download-scryfall-images",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.27.2"
+    "axios": "^1.6.2"
   }
 }
