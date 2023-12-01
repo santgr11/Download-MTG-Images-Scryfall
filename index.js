@@ -1,11 +1,16 @@
-const fs = require('fs');
-const path = require('path');
-const axios = require('axios');
+import {
+  readFileSync,
+  existsSync,
+  mkdirSync,
+  createWriteStream,
+  appendFile
+} from 'fs';
+import { resolve as _resolve } from 'path';
+import axios from 'axios';
 
 const SAVE_FOLDER_NAME = 'update29112023';
 
-const cards = fs
-  .readFileSync('cartas.txt')
+const cards = readFileSync('cartas.txt')
   .toString()
   .split('\r\n')
   .map(card => card.replace(' // ', '-'));
@@ -13,12 +18,12 @@ const cards = fs
 const downloadImage = async (url, name) => {
   const imageBuffer = await axios.get(url, { responseType: 'stream' });
 
-  if (!fs.existsSync(path.resolve(__dirname, 'images', SAVE_FOLDER_NAME))) {
-    fs.mkdirSync(path.resolve(__dirname, 'images', SAVE_FOLDER_NAME));
+  if (!existsSync(_resolve(__dirname, 'images', SAVE_FOLDER_NAME))) {
+    mkdirSync(_resolve(__dirname, 'images', SAVE_FOLDER_NAME));
   }
 
-  const writer = fs.createWriteStream(
-    path.resolve(__dirname, 'images', SAVE_FOLDER_NAME, `${name}.png`)
+  const writer = createWriteStream(
+    _resolve(__dirname, 'images', SAVE_FOLDER_NAME, `${name}.png`)
   );
   imageBuffer.data.pipe(writer);
 
@@ -96,7 +101,7 @@ const downloadAllImages = async () => {
 
       setTimeout(downloadAllImages, 5000);
     } else {
-      fs.appendFile(
+      appendFile(
         'notFoundCards.txt',
         `${notFoundCards.join('\n')}\n`,
         error => {
@@ -104,7 +109,7 @@ const downloadAllImages = async () => {
         }
       );
 
-      fs.appendFile(
+      appendFile(
         'errorFindingCards.txt',
         `${errorFindingCards.join('\n')}\n`,
         error => {
