@@ -11,7 +11,7 @@ import rateLimit from 'axios-rate-limit';
 
 const SAVE_FOLDER_NAME = 'update29112023';
 const EXCLUDE_SETS = ['who', 'sld', 'sta', 'zne', 'mps'];
-const EXCLUDE_BORDERS = ['gold'];
+const EXCLUDE_BORDERS = ['gold', 'white'];
 const EXCLUDE_SET_TYPES = []; //['masterpiece']
 const EXCLUDE_PRE_RELEASES = true;
 const EXCLUDE_PROMOS = true;
@@ -76,7 +76,7 @@ const downloadAllImages = async () => {
             !objectData.flavor_name &&
             !EXCLUDE_SET_TYPES.includes(objectData.set_type) &&
             (!EXCLUDE_PRE_RELEASES ||
-              !objectData.promo_types.includes('prerelease'))
+              !objectData.promo_types?.includes('prerelease'))
           );
         });
 
