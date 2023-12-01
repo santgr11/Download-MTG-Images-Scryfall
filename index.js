@@ -7,16 +7,24 @@ import {
 } from 'fs';
 import { resolve as _resolve } from 'path';
 import axios from 'axios';
+import rateLimit from 'axios-rate-limit';
 
 const SAVE_FOLDER_NAME = 'update29112023';
+
+const client = rateLimit(axios.create(), {
+  maxRequests: 10,
+  perMilliseconds: 1000,
+  maxRPS: 9
+});
 
 const cards = readFileSync('cartas.txt')
   .toString()
   .split('\r\n')
+  .filter(card => card !== '')
   .map(card => card.replace(' // ', '-'));
 
 const downloadImage = async (url, name) => {
-  const imageBuffer = await axios.get(url, { responseType: 'stream' });
+  const imageBuffer = await client.get(url, { responseType: 'stream' });
 
   if (!existsSync(_resolve(__dirname, 'images', SAVE_FOLDER_NAME))) {
     mkdirSync(_resolve(__dirname, 'images', SAVE_FOLDER_NAME));
@@ -35,21 +43,18 @@ const downloadImage = async (url, name) => {
 
 const failedCards = [];
 
-const notFoundCards = []; // Cards not found with the given name
-const errorFindingCards = []; // Cards which name created an error in the search
-
 const downloadAllImages = async () => {
-  const listToUse = failedCards.length > 0 ? [...failedCards] : cards;
-  failedCards.length = 0;
-  console.log('Downloading', listToUse.length, 'card images');
+  console.log('Downloading', cards.length, 'card images');
   Promise.all(
-    listToUse.map(async card => {
+    cards.map(async card => {
       try {
-        const url = `https://api.scryfall.com/cards/named?fuzzy=${card}`;
+        const url = `https://api.scryfall.com/cards/named?fuzzy=${encodeURIComponent(
+          card
+        )}`;
 
-        const cardSearchResponse = await axios.get(url);
+        const cardSearchResponse = await client.get(url);
         const cardSearchData = cardSearchResponse.data;
-        const printsSearchResponse = await axios.get(
+        const printsSearchResponse = await client.get(
           cardSearchData.prints_search_uri
         );
         const printsSearchData = printsSearchResponse.data.data;
@@ -59,7 +64,9 @@ const downloadAllImages = async () => {
             objectData.highres_image === true &&
             objectData.digital === false &&
             !objectData.frame_effects &&
-            objectData.promo === false
+            objectData.promo === false &&
+            objectData.set_name !== 'Secret Lair Drop' &&
+            objectData.border_color !== 'gold'
           );
         });
 
@@ -83,39 +90,19 @@ const downloadAllImages = async () => {
         }
       } catch (error) {
         console.log(`${card} failed to download: ${error}`);
-        if (error.response.status === 404 || error.response.status === 400) {
-          notFoundCards.push(card);
-        } else if (error.response.status === 400) {
-          errorFindingCards.push(card);
-        } else {
-          failedCards.push(card);
-        }
+
+        failedCards.push(`${card}: ${error.data?.details}`);
       }
     })
   ).then(() => {
     if (failedCards.length > 0) {
-      console.log(
-        'A total of ' + failedCards.length + ' cards failed to download'
-      );
-      console.log('Retrying after 5 seconds');
+      console.log(`A total of ${failedCards.length} cards failed to download`);
 
-      setTimeout(downloadAllImages, 5000);
+      appendFile('failedCards.txt', `${failedCards.join('\n')}\n`, error => {
+        if (error) throw error;
+      });
     } else {
-      appendFile(
-        'notFoundCards.txt',
-        `${notFoundCards.join('\n')}\n`,
-        error => {
-          if (error) throw error;
-        }
-      );
-
-      appendFile(
-        'errorFindingCards.txt',
-        `${errorFindingCards.join('\n')}\n`,
-        error => {
-          if (error) throw error;
-        }
-      );
+      console.log('All cards downloaded successfully');
     }
   });
 };
