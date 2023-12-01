@@ -14,7 +14,7 @@ const SAVE_FOLDER_NAME = 'update29112023';
 const client = rateLimit(axios.create(), {
   maxRequests: 10,
   perMilliseconds: 1000,
-  maxRPS: 9
+  maxRPS: 10
 });
 
 const cards = readFileSync('cartas.txt')
