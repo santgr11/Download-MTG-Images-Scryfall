@@ -10,6 +10,11 @@ import axios from 'axios';
 import rateLimit from 'axios-rate-limit';
 
 const SAVE_FOLDER_NAME = 'update29112023';
+const EXCLUDE_SETS = ['who', 'sld', 'sta', 'zne', 'mps'];
+const EXCLUDE_BORDERS = ['gold'];
+const EXCLUDE_SET_TYPES = []; //['masterpiece']
+const EXCLUDE_PRE_RELEASES = true;
+const EXCLUDE_PROMOS = true;
 
 const client = rateLimit(axios.create(), {
   maxRequests: 10,
@@ -61,12 +66,17 @@ const downloadAllImages = async () => {
 
         const highResOption = printsSearchData.find(objectData => {
           return (
+            objectData.lang === 'en' &&
             objectData.highres_image === true &&
             objectData.digital === false &&
             !objectData.frame_effects &&
-            objectData.promo === false &&
-            objectData.set_name !== 'Secret Lair Drop' &&
-            objectData.border_color !== 'gold'
+            (!EXCLUDE_PROMOS || objectData.promo === false) &&
+            !EXCLUDE_SETS.includes(objectData.set) &&
+            !EXCLUDE_BORDERS.includes(objectData.border_color) &&
+            !objectData.flavor_name &&
+            !EXCLUDE_SET_TYPES.includes(objectData.set_type) &&
+            (!EXCLUDE_PRE_RELEASES ||
+              !objectData.promo_types.includes('prerelease'))
           );
         });
 
